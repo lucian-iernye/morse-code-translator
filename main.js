@@ -1,5 +1,3 @@
-let message = document.getElementById("text").value; 
-console.log(message);
 const char = {  
     "0":"-----",
     "1":".----",
@@ -26,8 +24,10 @@ const mapLetter = letter => {
     return char[letter]; 
 }
 
-let output = document.getElementById("result");
+const writeOutput = () => {
+    let message = document.getElementById("text").value; 
+    document.getElementById("result").value = translate(message);
+}
+  
 
-output.innerHTML = message;
-
-document.getElementById("translate").addEventListener("click", () => translate(message));
+  document.getElementById("translate").addEventListener("click", writeOutput)
