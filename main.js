@@ -1,33 +1,49 @@
 const char = {  
-    "0":"-----",
-    "1":".----",
-    "2":"..---",
-    "3":"...--",
-    "4":"....-",
-    "5":".....",
-    "6":"-....",
-    "7":"--...",
-    "8":"---..",
-    "9":"----.",
-    "a":".-",
-    "b":"-...",
-    "c":"-.-.",
-    "d":"-..",
-    "e":"."
+    0:"-----",
+    1:".----",
+    2:"..---",
+    3:"...--",
+    4:"....-",
+    5:".....",
+    6:"-....",
+    7:"--...",
+    8:"---..",
+    9:"----.",
+    a:".-",
+    b:"-...",
+    c:"-.-.",
+    d:"-..",
+    e:".",
+    f: "..-.",
+    g: "--.",
+    h: "....",
+    i: "..",
+    j: ".---",
+    k: "-.-",
+    l: ".-..", 
+    m: "--",
+    n: "-.",
+    o: "---",
+    p: ".--.",
+    q: "--.-",
+    r: ".-.",
+    s: "...",
+    t: "-",
+    u: "..-",
+    v: "...-",
+    w: ".--",
+    x: "-..-",
+    y: "-.--",
+    z: "--.."
 };
 
-const translate = morse => {
-    return morse.split("").map(mapLetter).join(" ");
-}
+const translate = morse => morse.split("").map(mapLetter).join(" ");
 
-const mapLetter = letter => {
-    return char[letter]; 
-}
+const mapLetter = letter => char[letter]; 
 
 const writeOutput = () => {
     let message = document.getElementById("text").value; 
     document.getElementById("result").value = translate(message);
 }
-  
 
-  document.getElementById("translate").addEventListener("click", writeOutput)
+document.getElementById("translate").addEventListener("click", writeOutput);
