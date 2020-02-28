@@ -34,15 +34,16 @@ const char = {
     w: ".--",
     x: "-..-",
     y: "-.--",
-    z: "--.."
+    z: "--..",
+    " ": " "
 };
 
-const translate = morse => morse.split("").map(mapLetter).join(" ");
+const translate = morse => morse.toLowerCase().split("").map(mapLetter).join(" ");
 
 const mapLetter = letter => char[letter]; 
 
 const writeOutput = () => {
-    let message = document.getElementById("text").value; 
+    let message = document.getElementById("text").value;
     document.getElementById("result").value = translate(message);
 }
 
