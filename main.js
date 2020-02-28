@@ -38,13 +38,22 @@ const char = {
     " ": " "
 };
 
-const translate = morse => morse.toLowerCase().split("").map(mapLetter).join(" ");
+const translateToMorse = morse => morse.toLowerCase().split("").map(mapLetter).join(" ");
+const translateToText = morse => morse.split(" ").map(changeToWords).join("");
+
+
 
 const mapLetter = letter => char[letter]; 
 
+const changeToWords = element => {
+    return Object.keys(char).find(key => char[key] === element);
+}
+
 const writeOutput = () => {
     let message = document.getElementById("text").value;
-    document.getElementById("result").value = translate(message);
+    if (message[0].includes(".") || message[0].includes("-")) {
+        return document.getElementById("result").value = translateToText(message);
+    } document.getElementById("result").value = translateToMorse(message);
 }
 
 document.getElementById("translate").addEventListener("click", writeOutput);
