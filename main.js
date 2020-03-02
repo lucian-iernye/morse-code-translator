@@ -38,14 +38,12 @@ const char = {
     " ": " "
 };
 
-const translateToMorse = morse => morse.toLowerCase().split("").map(mapLetter).join(" ");
-const translateToText = morse => morse.split(" ").map(changeToWords).join("");
+const translateToMorse = (morse) => morse.toLowerCase().split("").map(mapLetter).join(" ");
+const translateToText = (morse) => morse.split("   ").map(word => word.split(" ").map(changeToWords).join("")).join(" ");
 
+const mapLetter = (letter) => char[letter]; 
 
-
-const mapLetter = letter => char[letter]; 
-
-const changeToWords = element => {
+const changeToWords = (element) => {
     return Object.keys(char).find(key => char[key] === element);
 }
 
